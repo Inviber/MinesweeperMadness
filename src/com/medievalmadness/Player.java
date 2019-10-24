@@ -26,7 +26,10 @@ public class Player {
 		this.yPos = yPos;
 	}
 	
-	
+	public static void update() {
+		
+		
+	}
 	
 	
 }
