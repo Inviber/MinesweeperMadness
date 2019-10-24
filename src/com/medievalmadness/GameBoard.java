@@ -16,6 +16,7 @@ public class GameBoard {
 		
 		boardParts.clear();
 		if(Game.selected_level == 1) {
+			//new BoardPart(xPos, yPos, GridPos, TextureIndex, CanCollide);
 			boardParts.add(new BoardPart(0, 0, 0, 0, true));
 			boardParts.add(new BoardPart(600, 350, 0, 0, true));
 			//Detect, using GridPos, what BoardParts are directly neighboring other parts
