@@ -20,7 +20,9 @@ public class Main extends HvlTemplateInteg2D{
 
 	@Override
 	public void initialize() {
+		getTextureLoader().loadResource("dog");
 		GameBoard.restart();
+		
 		
 	}
 	

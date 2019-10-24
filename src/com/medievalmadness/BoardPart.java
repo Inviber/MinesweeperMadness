@@ -2,12 +2,20 @@ package com.medievalmadness;
 
 public class BoardPart {
 	
-	public float xPos, yPos;
+	public float xPos;
+	public float yPos;
 	public int textureIndex, gridPos;
 	public boolean canCollide;
 	public static float boardPartSize = 100f;
+	
 
-	public BoardPart(float xPosArg, float yPosArg, int gridPos, float textureIndexArg, boolean canCollideArg) {
+	public BoardPart(float xPosArg, float yPosArg, int gridPos, int textureIndexArg, boolean canCollideArg) {
+		
+		setxPos(xPosArg);
+		setyPos(yPosArg);
+		setTextureIndex(textureIndexArg);
+		setGridPos(gridPos);
+		setCanCollide(canCollideArg);
 		
 	}
 
