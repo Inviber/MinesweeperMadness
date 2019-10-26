@@ -9,10 +9,6 @@ public class Main {
 		
 		game.playGame();
 		
-		
-		
-		
-
 	}
 
 }

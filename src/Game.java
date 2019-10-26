@@ -8,9 +8,8 @@ import javax.swing.JPanel;
 public class Game {
 	
 	JButton[][] userGameBoard;
-	GameBoard gameBorad;
+	GameBoard gameBoard;
 	JPanel jpanel;
-	
 	
 	public boolean isGameOver()
 	{
@@ -21,7 +20,7 @@ public class Game {
 	{
 		JFrame frame = new JFrame();
 		jpanel = new JPanel();
-		userGameBoard = new JButton[10][10];
+		userGameBoard = new JButton[5][5];
 		
 		final int FRAME_WIDTH = 600;  //Width of Frame
 		final int FRAME_HEIGHT = 600;  //Height of Frame
@@ -31,7 +30,29 @@ public class Game {
 	    //frame.setResizable(false);
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+	    
 	    frame.setVisible(true);
+	    
+	    gameBoard = new GameBoard(5, 5);
+	    
+	    
+	    //gameBoard.setGameBoard(userGameBoard);
+	    
+	    userGameBoard = gameBoard.getGameBoard();
+	    
+	    for(int i = 0; i < 5; i++)
+	    { 
+	    	for(int j = 0; j < 5; j++)
+	    	{
+	    		jpanel.add(userGameBoard[i][j]);
+	    	}
+	    }
+	    
+	    
+	    frame. add(jpanel);
+	    
+	    frame.setVisible(true);
+	   
 	   
 		
 	}
