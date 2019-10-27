@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -6,12 +8,11 @@ public class Main {
 		Game game = new Game();
 		
 		
-		game.selectLevel(1);
-		
 		game.playGame();
 		
 		
 	}
 
 }
+
 
