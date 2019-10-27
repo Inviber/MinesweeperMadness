@@ -1,44 +1,120 @@
-
 public class Cell {
+	
+	
+	public Cell()
+	{
+		
+	}
+	
+	
+	public boolean isMine(char gameBoard[][], int rowPos, int columnPos)
+	{
+		if(gameBoard[rowPos][columnPos] == '*')
+		{
+			return true;
+		}
+		else 
+		{
+			return false;
+		}	
+	}
+	
+	
+	public boolean isValidCell(int rowPos, int columnPos)
+	{
+		if((rowPos >= 0 && rowPos < 5) && (columnPos >= 0 && columnPos < 5))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	public int getMineCount(char gameBoard[][], int rowPos, int columnPos)
+	{
+		int count = 0;
+		
+		//Checking South of Cell to see if there are any mines
+		if(isValidCell(rowPos + 1, columnPos) == true)
+		{
+			if(isMine(gameBoard, rowPos + 1, columnPos) == true)
+			{
+				count++;
+			}
+		}
 
-	/*public int getMineCount() {
-		// TODO Auto-generated method stub
-		
+		//Checking South West of Cell to see if there are any mines
+		if(isValidCell(rowPos + 1, columnPos - 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos + 1, columnPos - 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking West of Cell to see if there are any mines
+		if(isValidCell(rowPos, columnPos - 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos, columnPos - 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking North West of Cell to see if there are any mines
+		if(isValidCell(rowPos - 1, columnPos - 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos - 1, columnPos - 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking North of Cell to see if there are any mines
+		if(isValidCell(rowPos - 1, columnPos) == true)
+	        {
+	                if(isMine(gameBoard, rowPos - 1, columnPos) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking North East of Cell to see if there are any mines
+		if(isValidCell(rowPos - 1, columnPos + 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos - 1, columnPos + 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking East of Cell to see if there are any mines
+		if(isValidCell(rowPos, columnPos + 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos, columnPos + 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Checking South East of Cell to see if there are any mines
+		if(isValidCell(rowPos + 1, columnPos + 1) == true)
+	        {
+	                if(isMine(gameBoard, rowPos + 1, columnPos + 1) == true)
+	                {
+	                        count++;
+	                }
+	        }
+
+		//Returns Number of mines that are adjacent to cell specified
+		return count;			
 	}
 	
-	public int click() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isMine() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isFlag() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isFlag() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isValidCell() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isCleared() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isClear() {
-		// TODO Auto-generated method stub
-		
-	}
-	*/
+
+
+
 }
+
