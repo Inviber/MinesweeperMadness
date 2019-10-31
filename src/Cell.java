@@ -1,6 +1,7 @@
 public class Cell {
 	
 	
+	
 	public Cell()
 	{
 		
@@ -20,9 +21,9 @@ public class Cell {
 	}
 	
 	
-	public boolean isValidCell(int rowPos, int columnPos)
+	public boolean isOrb(char gameBoardCopy[][], int rowPos, int columnPos)
 	{
-		if((rowPos >= 0 && rowPos < 5) && (columnPos >= 0 && columnPos < 5))
+		if(gameBoardCopy[rowPos][columnPos] == 'f')
 		{
 			return true;
 		}
@@ -33,12 +34,25 @@ public class Cell {
 	}
 	
 	
-	public int getMineCount(char gameBoard[][], int rowPos, int columnPos)
+	public boolean isValidCell(int rowPos, int columnPos, int widthOfBoard, int heightOfBoard)
+	{
+		if((rowPos >= 0 && rowPos < widthOfBoard) && (columnPos >= 0 && columnPos < heightOfBoard))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	public int getMineCount(char gameBoard[][], int rowPos, int columnPos, int widthOfBoard, int heightOfBoard)
 	{
 		int count = 0;
 		
 		//Checking South of Cell to see if there are any mines
-		if(isValidCell(rowPos + 1, columnPos) == true)
+		if(isValidCell(rowPos + 1, columnPos, widthOfBoard, heightOfBoard) == true)
 		{
 			if(isMine(gameBoard, rowPos + 1, columnPos) == true)
 			{
@@ -47,7 +61,7 @@ public class Cell {
 		}
 
 		//Checking South West of Cell to see if there are any mines
-		if(isValidCell(rowPos + 1, columnPos - 1) == true)
+		if(isValidCell(rowPos + 1, columnPos - 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos + 1, columnPos - 1) == true)
 	                {
@@ -56,7 +70,7 @@ public class Cell {
 	        }
 
 		//Checking West of Cell to see if there are any mines
-		if(isValidCell(rowPos, columnPos - 1) == true)
+		if(isValidCell(rowPos, columnPos - 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos, columnPos - 1) == true)
 	                {
@@ -65,7 +79,7 @@ public class Cell {
 	        }
 
 		//Checking North West of Cell to see if there are any mines
-		if(isValidCell(rowPos - 1, columnPos - 1) == true)
+		if(isValidCell(rowPos - 1, columnPos - 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos - 1, columnPos - 1) == true)
 	                {
@@ -74,7 +88,7 @@ public class Cell {
 	        }
 
 		//Checking North of Cell to see if there are any mines
-		if(isValidCell(rowPos - 1, columnPos) == true)
+		if(isValidCell(rowPos - 1, columnPos, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos - 1, columnPos) == true)
 	                {
@@ -83,7 +97,7 @@ public class Cell {
 	        }
 
 		//Checking North East of Cell to see if there are any mines
-		if(isValidCell(rowPos - 1, columnPos + 1) == true)
+		if(isValidCell(rowPos - 1, columnPos + 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos - 1, columnPos + 1) == true)
 	                {
@@ -92,7 +106,7 @@ public class Cell {
 	        }
 
 		//Checking East of Cell to see if there are any mines
-		if(isValidCell(rowPos, columnPos + 1) == true)
+		if(isValidCell(rowPos, columnPos + 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos, columnPos + 1) == true)
 	                {
@@ -101,7 +115,7 @@ public class Cell {
 	        }
 
 		//Checking South East of Cell to see if there are any mines
-		if(isValidCell(rowPos + 1, columnPos + 1) == true)
+		if(isValidCell(rowPos + 1, columnPos + 1, widthOfBoard, heightOfBoard) == true)
 	        {
 	                if(isMine(gameBoard, rowPos + 1, columnPos + 1) == true)
 	                {
@@ -113,8 +127,6 @@ public class Cell {
 		return count;			
 	}
 	
-
-
+	
 
 }
-
