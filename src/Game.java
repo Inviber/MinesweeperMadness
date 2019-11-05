@@ -39,6 +39,15 @@ public class Game {
 		this.heightOfBoard = heightOfBoard;
 	}
 		
+	public int getWidthOfBoard() {
+		return widthOfBoard;
+	}
+
+
+	public int getHeightOfBoard() {
+		return heightOfBoard;
+	}
+
 	
 	public void selectLevel(int levelOption)
 	{
@@ -125,6 +134,8 @@ public class Game {
 	
 	
 	
+
+
 	public boolean isGameOver()
 	{
 		return false;
