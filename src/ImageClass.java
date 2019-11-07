@@ -1,4 +1,4 @@
-
+import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class ImageClass {
@@ -7,6 +7,10 @@ public class ImageClass {
 	private ImageIcon tiles; 
 	private ImageIcon mine; 
 	private ImageIcon orb; 
+	private ImageIcon dungeon;
+	private ImageIcon sanctuary;
+	private ImageIcon dragon;
+	private ImageIcon crystalCave;
 	
 	private ImageIcon number0;
 	private ImageIcon number1;
@@ -25,7 +29,11 @@ public class ImageClass {
 		tiles = new ImageIcon("Tile.png");
 		mine = new ImageIcon("Mine.jpg");
 		orb = new ImageIcon("Orb.png");
-	
+		dungeon = new ImageIcon("Dungeon.jpg");
+		sanctuary = new ImageIcon("Sanctuary.jpg");
+		dragon = new ImageIcon("DragonLair.jpg");
+		crystalCave = new ImageIcon("CrystalCave.jpg");
+		
 		number0 = new ImageIcon("Number0.png");
 		number1 = new ImageIcon("Number1.png");
 		number2 = new ImageIcon("Number2.png");
@@ -37,6 +45,43 @@ public class ImageClass {
 		number8 = new ImageIcon("Number8.png");	
 	}
 	
+	public ImageIcon getDungeonImage()
+	{
+		Image img = dungeon.getImage();
+		Image dungeonImg = img.getScaledInstance(660, 350, Image.SCALE_SMOOTH);
+		ImageIcon dungeonImage = new ImageIcon(dungeonImg);
+		
+		return dungeonImage;
+	}
+	
+	
+	public ImageIcon getSanctuaryImage()
+	{
+		Image img = sanctuary.getImage();
+		Image sanctImg = img.getScaledInstance(830, 370, Image.SCALE_SMOOTH);
+		ImageIcon sanctuaryImage = new ImageIcon(sanctImg);
+		
+		return sanctuaryImage;
+	}
+	
+	public ImageIcon getDragonImage()
+	{
+		Image img = dragon.getImage();
+		Image dragonImg = img.getScaledInstance(900, 230, Image.SCALE_SMOOTH);
+		ImageIcon dragonImage = new ImageIcon(dragonImg);
+		
+		return dragonImage;
+	}
+	
+	
+	public ImageIcon getCrystalCaveImage()
+	{
+		Image img = crystalCave.getImage();
+		Image caveImg = img.getScaledInstance(880, 540, Image.SCALE_SMOOTH);
+		ImageIcon crystalCaveImage = new ImageIcon(caveImg);
+		
+		return crystalCaveImage;
+	}
 	
 	public ImageIcon getTileImage()
 	{
