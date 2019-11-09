@@ -2,6 +2,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
  class GameBoard implements MouseListener  {
@@ -102,6 +103,37 @@ import javax.swing.SwingUtilities;
 	public char[][] getGameBoardCharacterArray()
 	{
 		return gameBoardCharacterArray;
+	}
+	
+	public void explode(){
+		
+		for (int i = 0; i < gameBoardButtons.length; i++)
+		{
+			for (int j = 0; j < gameBoardButtons[0].length; j++)
+			{
+				if (gameBoardCharacterArray[i][j] == '*')
+				{
+					gameBoardButtons[i][j].setIcon(image.getMineImage());
+				
+				}
+				
+			}
+			
+		}
+		gameOver();
+		JOptionPane.showMessageDialog(null, "BOOM!!!!! sorry but um you lost!!");	
+	}
+	
+	public void gameOver(){
+		for (int i = 0; i < gameBoardButtons.length; i++)
+		{
+			for (int j = 0; j < gameBoardButtons[0].length; j++)
+			{
+				gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
+			}
+			
+		}
+		
 	}
 	
 	
@@ -351,6 +383,7 @@ import javax.swing.SwingUtilities;
 							if(gameBoardCharacterArray[i][j] == '*' )
 							{
 								gameBoardButtons[i][j].setIcon(image.getMineImage());
+								explode();
 							}
 							
 							else if(gameBoardCharacterArray[i][j] == '0')
