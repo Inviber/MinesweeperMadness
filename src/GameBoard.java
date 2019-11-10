@@ -14,6 +14,7 @@ import javax.swing.SwingUtilities;
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
 	
 	
+	
 	ImageClass image = new ImageClass();
 	
 	public GameBoard(int width, int height)
@@ -105,36 +106,55 @@ import javax.swing.SwingUtilities;
 		return gameBoardCharacterArray;
 	}
 	
-	public void explode(){
+	public void explode()
+	{
+		int val;
 		
 		for (int i = 0; i < gameBoardButtons.length; i++)
 		{
 			for (int j = 0; j < gameBoardButtons[0].length; j++)
 			{
-				if (gameBoardCharacterArray[i][j] == '*')
-				{
+				val = cell.explode(gameBoardCharacterArray, i, j);
+				
+				if(val == -1)
 					gameBoardButtons[i][j].setIcon(image.getMineImage());
-				
-				}
-				
+				else if(val == 0)
+					gameBoardButtons[i][j].setIcon(image.getNumber0Image());
+				else if(val == 1)
+					gameBoardButtons[i][j].setIcon(image.getNumber1Image());
+				else if(val == 2)
+					gameBoardButtons[i][j].setIcon(image.getNumber2Image());
+				else if(val == 3)
+					gameBoardButtons[i][j].setIcon(image.getNumber3Image());
+				else if(val == 4)
+					gameBoardButtons[i][j].setIcon(image.getNumber4Image());
+				else if(val == 5)
+					gameBoardButtons[i][j].setIcon(image.getNumber5Image());
+				else if(val == 6)
+					gameBoardButtons[i][j].setIcon(image.getNumber6Image());
+				else if(val == 7)
+					gameBoardButtons[i][j].setIcon(image.getNumber7Image());
+				else if(val == 8)
+					gameBoardButtons[i][j].setIcon(image.getNumber8Image());
 			}
 			
 		}
-		gameOver();
+		//gameOver();
 		JOptionPane.showMessageDialog(null, "BOOM!!!!! sorry but um you lost!!");	
 	}
 	
-	public void gameOver(){
+	public void gameOver()
+	{
 		for (int i = 0; i < gameBoardButtons.length; i++)
 		{
 			for (int j = 0; j < gameBoardButtons[0].length; j++)
 			{
 				gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
-			}
-			
+			}	
 		}
 		
 	}
+	
 	
 	
 	private void zeroFill(int cellX, int cellY) {
