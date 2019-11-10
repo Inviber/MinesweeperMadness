@@ -127,6 +127,62 @@ public class Cell {
 		return count;			
 	}
 	
+	
+	public int explode(char gameBoardCharacterArray[][], int rowPos, int columnPos)
+	{
+		if(gameBoardCharacterArray[rowPos][columnPos] == '*') 
+		{
+			return -1;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '0')
+		{
+			return 0;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '1')
+		{
+			return 1;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '2')
+		{
+			return 2;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '3')
+		{
+			return 3;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '4')
+		{
+			return 4;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '5')
+		{
+			return 5;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '6')
+		{
+			return 6;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '7')
+		{
+			return 7;
+		}
+		
+		else if(gameBoardCharacterArray[rowPos][columnPos] == '8')
+		{
+			return 8;
+		}
+		
+		return -2;
+	}
+	
 	// Need to add a var for the remaining cells
 	//TODO Finish the method
 	/* public boolean checkLevelCleared(char gameBoard[][], int rowPos, int columnPos, int widthOfBoard, int heightOfBoard, int mineCount)
