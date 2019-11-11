@@ -55,18 +55,17 @@ import javax.swing.SwingUtilities;
 	{
 		int xPos;
 		int yPos;
-		int maxRange = width - 1;
+		int maxRange = width;
 		int range = maxRange;
 		
-		for(int mineCount = 0; mineCount <= width - 1;)
+		for(int mineCount = 0; mineCount <= maxRange;)
 		{
 			xPos = (int)(Math.random() * range);
 			yPos = (int)(Math.random() * range);
 			
-			if(gameBoardCharacterArray[xPos][yPos] != '*')
+			if(!cell.isMine(gameBoardCharacterArray, xPos, yPos))
 			{
 				gameBoardCharacterArray[xPos][yPos] = '*';
-				
 				++mineCount;
 			}
 			
@@ -139,7 +138,7 @@ import javax.swing.SwingUtilities;
 			}
 			
 		}
-		//gameOver();
+		gameOver();
 		JOptionPane.showMessageDialog(null, "BOOM!!!!! sorry but um you lost!!");	
 	}
 	
@@ -165,6 +164,7 @@ import javax.swing.SwingUtilities;
 			zeroFillArray[cellX][cellY] = 'z';
 			gameBoardButtons[cellX][cellY].setIcon(image.getNumber0Image());
 
+			
 			if(cellX-1 > 0 && cellX-1 < gameBoardButtons.length && cellY > 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '1') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber1Image());
@@ -188,8 +188,6 @@ import javax.swing.SwingUtilities;
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber1Image());
 				}
 			}
-
-			//
 
 			if(cellX-1 > 0 && cellX-1 < gameBoardButtons.length && cellY > 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '2') {
