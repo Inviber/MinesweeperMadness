@@ -13,10 +13,8 @@ import javax.swing.SwingUtilities;
 	private char[][] gameBoardCharacterArrayCopy; //Use to Determine if GameBoard is cleared
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
 	private static int widthOfBoard;
-	//private int numberOfClickedCells = 0;
 	public static int clickedCells = 0;
 	public static int numberOfCells;
-	//private int numberOfMines;
 	
 	ImageClass image = new ImageClass();
 	
@@ -646,24 +644,7 @@ import javax.swing.SwingUtilities;
 		
 	}
 	
-	/*private int increaseNumberOfClickedCells(int clickedCells)
-	{
-		++clickedCells;
-		return clickedCells;
-	}
-	
-	public void setNumberOfClickedCells(int numberOfClickedCells)
-	{
-		this.numberOfClickedCells = numberOfClickedCells;
-	}
-	
-	public int getNumberOfClickedCells()
-	{
-		return increaseNumberOfClickedCells(clickedCells);
-	}
-	*/
-	
-	
+		
 	public static boolean isClear()
 	{
 		if(clickedCells + (widthOfBoard + 1)  == 25)
