@@ -156,17 +156,6 @@ import javax.swing.SwingUtilities;
 				gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
 			}	
 		}
-		
-		if(isClear() == true)
-		{
-			for (int i = 0; i < gameBoardButtons.length; i++)
-			{
-				for (int j = 0; j < gameBoardButtons[0].length; j++)
-				{
-					gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
-				}	
-			}
-		}
 	}
 	
 	
@@ -663,7 +652,7 @@ import javax.swing.SwingUtilities;
 	{
 		if(clickedCells + (widthOfBoard + 1)  == numberOfCells)
 		{
-			System.out.println("Hey");
+			System.out.println("U have cleared the game");
 			return true;
 		} else
 		{
