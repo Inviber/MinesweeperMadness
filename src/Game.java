@@ -160,14 +160,7 @@ public class Game {
 	
 	public boolean isGameOver()
 	{
-		if(GameBoard.isClear() == true)
-		{
-			System.out.println("U won!");
-			return true;
-		} else
-		{
 			return false;
-		}
 	}
 	
 	

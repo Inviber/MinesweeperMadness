@@ -157,6 +157,16 @@ import javax.swing.SwingUtilities;
 			}	
 		}
 		
+		if(isClear() == true)
+		{
+			for (int i = 0; i < gameBoardButtons.length; i++)
+			{
+				for (int j = 0; j < gameBoardButtons[0].length; j++)
+				{
+					gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
+				}	
+			}
+		}
 	}
 	
 	
@@ -649,7 +659,7 @@ import javax.swing.SwingUtilities;
 	}
 	
 		
-	public static boolean isClear()
+	public boolean isClear()
 	{
 		if(clickedCells + (widthOfBoard + 1)  == numberOfCells)
 		{
