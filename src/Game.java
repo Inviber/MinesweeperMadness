@@ -10,7 +10,7 @@ public class Game {
 	
 	private JButton[][] userGameBoardButtons;
 	private char[][] uesrGameBoardCharacterArray;
-	private GameBoard gameBoard;
+	public GameBoard gameBoard;
 	JFrame frame = new JFrame();
 	private JPanel panelGameBoard;
 	private JLabel imageLabel = new JLabel();
@@ -157,11 +157,28 @@ public class Game {
 	    frame.setVisible(true);
 	}
 	
-	
+	/*public boolean isClear()
+	{
+		if(gameBoard.clickedCells + 6  == gameBoard.numberOfCells)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
+	}
+*/
 	
 	public boolean isGameOver()
 	{
-		return false;
+		if(GameBoard.isClear() == true)
+		{
+			System.out.println("U won!");
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 	
 	
