@@ -13,7 +13,10 @@ import javax.swing.SwingUtilities;
 	private char[][] gameBoardCharacterArrayCopy; //Use to Determine if GameBoard is cleared
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
 	
-	
+	private int numberOfClickedCells = 0;
+	private int clickedCells = 0;
+	private int numberOfCells;
+	private int numberOfMines;
 	
 	ImageClass image = new ImageClass();
 	
@@ -67,6 +70,7 @@ import javax.swing.SwingUtilities;
 			{
 				gameBoardCharacterArray[xPos][yPos] = '*';
 				++mineCount;
+				++numberOfMines;
 			}
 			
 		}
@@ -86,6 +90,7 @@ import javax.swing.SwingUtilities;
 					countMines = cell.getMineCount(gameBoardCharacterArray, i, j, widthOfBoard, heightOfBoard);
 					gameBoardCharacterArray[i][j] = (char)(countMines + '0');
 				}
+				++numberOfCells;
 			}
 		}
 		
@@ -497,6 +502,7 @@ import javax.swing.SwingUtilities;
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber0Image());
 								zeroFill(i, j);
+								
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '1')
@@ -576,6 +582,35 @@ import javax.swing.SwingUtilities;
 			}
 		}
 		
+	}
+	
+	private int increaseNumberOfClickedCells(int clickedCells)
+	{
+		++clickedCells;
+		return clickedCells;
+	}
+	
+	public void setNumberOfClickedCells(int numberOfClickedCells)
+	{
+		this.numberOfClickedCells = numberOfClickedCells;
+	}
+	
+	public int getNumberOfClickedCells()
+	{
+		return increaseNumberOfClickedCells(clickedCells);
+	}
+	
+	
+	
+	public boolean isClear()
+	{
+		if(numberOfClickedCells + numberOfMines == numberOfCells)
+		{
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 
