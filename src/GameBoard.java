@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 	private char[][] gameBoardCharacterArray;
 	private char[][] gameBoardCharacterArrayCopy; //Use to Determine if GameBoard is cleared
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
-	
+	private static int widthOfBoard;
 	//private int numberOfClickedCells = 0;
 	public static int clickedCells = 0;
 	public static int numberOfCells;
@@ -26,6 +26,8 @@ import javax.swing.SwingUtilities;
 		gameBoardCharacterArray = new char[width][height];
 		gameBoardCharacterArrayCopy = new char[width][height];
 		zeroFillArray = new char[width][height];
+		
+		widthOfBoard = width;
 		
 		createGameBoard(width, height);	
 		
@@ -557,24 +559,28 @@ import javax.swing.SwingUtilities;
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber1Image());
 								++clickedCells;
+								System.out.println(clickedCells);
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '2')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber2Image());
 								++clickedCells;
+								System.out.println(clickedCells);
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '3')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber3Image());
 								++clickedCells;
+								System.out.println(clickedCells);
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '4')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber4Image());
 								++clickedCells;
+								System.out.println(clickedCells);
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '5')
@@ -660,7 +666,7 @@ import javax.swing.SwingUtilities;
 	
 	public static boolean isClear()
 	{
-		if(clickedCells + 6  == numberOfCells)
+		if(clickedCells + (widthOfBoard + 1)  == 25)
 		{
 			return true;
 		} else
