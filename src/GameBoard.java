@@ -558,6 +558,7 @@ import javax.swing.SwingUtilities;
 								gameBoardButtons[i][j].setIcon(image.getNumber1Image());
 								++clickedCells;
 								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '2')
@@ -565,6 +566,7 @@ import javax.swing.SwingUtilities;
 								gameBoardButtons[i][j].setIcon(image.getNumber2Image());
 								++clickedCells;
 								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '3')
@@ -572,6 +574,7 @@ import javax.swing.SwingUtilities;
 								gameBoardButtons[i][j].setIcon(image.getNumber3Image());
 								++clickedCells;
 								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '4')
@@ -579,6 +582,7 @@ import javax.swing.SwingUtilities;
 								gameBoardButtons[i][j].setIcon(image.getNumber4Image());
 								++clickedCells;
 								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '5')
@@ -647,8 +651,9 @@ import javax.swing.SwingUtilities;
 		
 	public static boolean isClear()
 	{
-		if(clickedCells + (widthOfBoard + 1)  == 25)
+		if(clickedCells + (widthOfBoard + 1)  == numberOfCells)
 		{
+			System.out.println("Hey");
 			return true;
 		} else
 		{

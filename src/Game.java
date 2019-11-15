@@ -157,17 +157,6 @@ public class Game {
 	    frame.setVisible(true);
 	}
 	
-	/*public boolean isClear()
-	{
-		if(gameBoard.clickedCells + 6  == gameBoard.numberOfCells)
-		{
-			return true;
-		} else
-		{
-			return false;
-		}
-	}
-*/
 	
 	public boolean isGameOver()
 	{
