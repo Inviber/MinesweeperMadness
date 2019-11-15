@@ -652,7 +652,7 @@ import javax.swing.SwingUtilities;
 	{
 		if(clickedCells + (widthOfBoard + 1)  == numberOfCells)
 		{
-			System.out.println("U have cleared the game");
+			JOptionPane.showMessageDialog(null, "You Have Cleared the Level!");
 			return true;
 		} else
 		{
