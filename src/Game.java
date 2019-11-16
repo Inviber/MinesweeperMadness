@@ -10,7 +10,7 @@ public class Game {
 	
 	private JButton[][] userGameBoardButtons;
 	private char[][] uesrGameBoardCharacterArray;
-	private GameBoard gameBoard;
+	public GameBoard gameBoard;
 	JFrame frame = new JFrame();
 	private JPanel panelGameBoard;
 	private JLabel imageLabel = new JLabel();
@@ -158,10 +158,9 @@ public class Game {
 	}
 	
 	
-	
 	public boolean isGameOver()
 	{
-		return false;
+			return false;
 	}
 	
 	

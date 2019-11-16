@@ -4,7 +4,6 @@ public class Main {
 		
 		@SuppressWarnings("unused")
 		Menu menu = new Menu();
-		
 	}
 
 }

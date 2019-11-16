@@ -1,7 +1,6 @@
 public class Cell {
 	
 	
-	
 	public Cell()
 	{
 		
@@ -183,28 +182,6 @@ public class Cell {
 		return -2;
 	}
 	
-	// Need to add a var for the remaining cells
-	//TODO Finish the method
-	/* public boolean checkLevelCleared(char gameBoard[][], int rowPos, int columnPos, int widthOfBoard, int heightOfBoard, int mineCount)
-	{
-		for(rowPos = 0; rowPos <= widthOfBoard; ++rowPos)
-		{
-			for(columnPos = 0; columnPos <= heightOfBoard; ++columnPos)
-			{
-				if(gameBoard[rowPos][columnPos] == isMine())
-				{
-					++mineCount;
-				}
-			}
-		}
-		
-		if(mineCount == numberOfRemainingCells)
-		{
-			return true;
-		}
-		
-		return false;
-			
-	} */
+
 
 }

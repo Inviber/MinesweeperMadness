@@ -12,8 +12,9 @@ import javax.swing.SwingUtilities;
 	private char[][] gameBoardCharacterArray;
 	private char[][] gameBoardCharacterArrayCopy; //Use to Determine if GameBoard is cleared
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
-	
-	
+	private static int widthOfBoard;
+	public static int clickedCells = 0;
+	public static int numberOfCells;
 	
 	ImageClass image = new ImageClass();
 	
@@ -23,6 +24,8 @@ import javax.swing.SwingUtilities;
 		gameBoardCharacterArray = new char[width][height];
 		gameBoardCharacterArrayCopy = new char[width][height];
 		zeroFillArray = new char[width][height];
+		
+		widthOfBoard = width;
 		
 		createGameBoard(width, height);	
 		
@@ -86,6 +89,8 @@ import javax.swing.SwingUtilities;
 					countMines = cell.getMineCount(gameBoardCharacterArray, i, j, widthOfBoard, heightOfBoard);
 					gameBoardCharacterArray[i][j] = (char)(countMines + '0');
 				}
+				++numberOfCells;
+				System.out.println(numberOfCells);
 			}
 		}
 		
@@ -151,7 +156,6 @@ import javax.swing.SwingUtilities;
 				gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
 			}	
 		}
-		
 	}
 	
 	
@@ -167,96 +171,112 @@ import javax.swing.SwingUtilities;
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '1') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '1') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '1') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '1') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '1') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '1') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '1') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '1') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber1Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '2') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '2') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '2') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '2') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '2') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '2') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '2') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '2') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber2Image());
+					++clickedCells;
 				}
 			}
 			
@@ -264,192 +284,224 @@ import javax.swing.SwingUtilities;
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '3') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '3') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '3') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '3') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '3') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '3') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '3') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '3') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber3Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '4') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '4') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '4') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '4') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '4') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '4') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '4') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '4') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber4Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '5') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '5') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '5') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '5') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '5') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '5') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '5') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '5') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber5Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY] == '6') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY-1] == '6') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX >= 0 && cellX < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX][cellY+1] == '6') {
 					gameBoardButtons[cellX][cellY+1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY >= 0 && cellY < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY] == '6') {
 					gameBoardButtons[cellX+1][cellY].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 			
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY-1] == '6') {
 					gameBoardButtons[cellX-1][cellY-1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY-1 >= 0 && cellY-1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY-1] == '6') {
 					gameBoardButtons[cellX+1][cellY-1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX-1 >= 0 && cellX-1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX-1][cellY+1] == '6') {
 					gameBoardButtons[cellX-1][cellY+1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 
 			if(cellX+1 >= 0 && cellX+1 < gameBoardButtons.length && cellY+1 >= 0 && cellY+1 < gameBoardButtons.length) {
 				if(gameBoardCharacterArray[cellX+1][cellY+1] == '6') {
 					gameBoardButtons[cellX+1][cellY+1].setIcon(image.getNumber6Image());
+					++clickedCells;
 				}
 			}
 			
@@ -497,46 +549,63 @@ import javax.swing.SwingUtilities;
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber0Image());
 								zeroFill(i, j);
+								System.out.println(clickedCells);
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '1')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber1Image());
+								++clickedCells;
+								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '2')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber2Image());
+								++clickedCells;
+								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '3')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber3Image());
+								++clickedCells;
+								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '4')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber4Image());
+								++clickedCells;
+								System.out.println(clickedCells);
+								isClear();
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '5')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber5Image());
+								++clickedCells;
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '6')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber6Image());
+								++clickedCells;
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '7')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber7Image());
+								++clickedCells;
 							}
 						
 							else if(gameBoardCharacterArray[i][j] == '8')
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber8Image());
+								++clickedCells;
 							}
 						}
 					}
@@ -576,6 +645,19 @@ import javax.swing.SwingUtilities;
 			}
 		}
 		
+	}
+	
+		
+	public boolean isClear()
+	{
+		if(clickedCells + (widthOfBoard + 1)  == numberOfCells)
+		{
+			JOptionPane.showMessageDialog(null, "You Have Cleared the Level!");
+			return true;
+		} else
+		{
+			return false;
+		}
 	}
 
 
