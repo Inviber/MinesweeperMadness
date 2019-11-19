@@ -18,10 +18,9 @@ public class Menu implements MouseListener {
 	private JButton level3Button = new JButton("Expert Level");
 	
 	private ImageClass image = new ImageClass();
-	
-	
-	Game game = new Game();
-	
+	private Game game = new Game();
+	private BeginnerStory story = new BeginnerStory();
+		
 	
 	public Menu()
 	{
@@ -77,11 +76,13 @@ public class Menu implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		if(e.getSource() == level1Button)
 		{
 			frame.dispose();
-			game.playGame(1);
+	
+			story.beginnerStory();
+			//game.playGame(1);
 		}
 		
 		else if(e.getSource() == level2Button)
