@@ -109,7 +109,6 @@ public class Game {
 		uesrGameBoardCharacterArray = new char[widthOfBoard][heightOfBoard];
 
 		
-		
 	    frame.setSize(frameWidth, frameHeight);
 	    frame.setTitle("Minesweeper Madness");
 	    frame.setResizable(false);
@@ -119,7 +118,7 @@ public class Game {
 	    panelFormatForFrame.setBackground(Color.BLACK);
 	    
 	    
-	    gameBoard = new GameBoard(widthOfBoard, heightOfBoard);
+	    gameBoard = new GameBoard(widthOfBoard, heightOfBoard, levelSelected, frame);
 	    
 	    
 	    panelGameBoard.setLayout(new GridLayout(widthOfBoard, heightOfBoard, 4 , 5));
@@ -167,5 +166,3 @@ public class Game {
 	
 
 }
-
-
