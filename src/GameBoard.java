@@ -2,13 +2,11 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
  class GameBoard implements MouseListener  {
-	
-	private Cell cell = new Cell();
-	private ImageClass image = new ImageClass();
 	
 	private JButton[][] gameBoardButtons;
 	private char[][] gameBoardCharacterArray;
@@ -16,24 +14,28 @@ import javax.swing.SwingUtilities;
 	private char[][] zeroFillArray; //Used to determine which cells have been checked for a cascading reveal
 	private int widthOfBoard;
 	private int heightOfBoard;
+	private int currentLevel;
+	private JFrame gameFrame;
+	
+	private Cell cell = new Cell();
+	private ImageClass image = new ImageClass();
+	private PlayAgain playAgainMenu = new PlayAgain();
 	
 	
-	public GameBoard(int width, int height)
+	public GameBoard(int width, int height, int currentLevel, JFrame frame)
 	{
 		gameBoardButtons = new JButton[width][height];
 		gameBoardCharacterArray = new char[width][height];
 		gameBoardCharacterArrayCopy = new char[width][height];
 		zeroFillArray = new char[width][height];
-		
+		this.currentLevel = currentLevel;
 		widthOfBoard = width;
 		heightOfBoard = height;
+		gameFrame = frame;
 		
 		createGameBoard(width, height);	
-		
 		randomMinePlacement(width, height);
-		
-		fillWithCells(width, height);
-		
+		fillWithCells(width, height);	
 	}
 	
 	
@@ -107,6 +109,7 @@ import javax.swing.SwingUtilities;
 		return gameBoardCharacterArray;
 	}
 	
+	
 	public void explode()
 	{
 		int val;
@@ -141,18 +144,14 @@ import javax.swing.SwingUtilities;
 			
 		}
 		gameOver();
-		JOptionPane.showMessageDialog(null, "BOOM!!!!! sorry but um you lost!!");	
 	}
 	
 	public void gameOver()
 	{
-		for (int i = 0; i < widthOfBoard; i++)
-		{
-			for (int j = 0; j < heightOfBoard; j++)
-			{
-				gameBoardCharacterArray[i][j] = gameBoardCharacterArrayCopy[i][j];	
-			}	
-		}
+		JOptionPane.showMessageDialog(null, "Game Over!");
+		gameFrame.dispose();
+		playAgainMenu.gameOver(currentLevel);
+		
 	}
 	
 	
@@ -521,7 +520,7 @@ import javax.swing.SwingUtilities;
 	}
 
 	
-	public boolean isAllClear()
+	public void isAllClear()
 	{
 		int count = 0;
 		
@@ -536,16 +535,13 @@ import javax.swing.SwingUtilities;
 			}
 		}
 		
-		if(count == 1)
-		{
-			return false;
-		}
-		
-		else
+		if(count != 1)
 		{
 			JOptionPane.showMessageDialog(null, "Congragulations");
-			return true;
+			gameFrame.dispose();
+			playAgainMenu.continueGame(currentLevel);
 		}
+		
 		
 	}
 	
@@ -553,11 +549,10 @@ import javax.swing.SwingUtilities;
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
-		for(int i = 0; i < gameBoardButtons.length; i++)
+		for(int i = 0; i < widthOfBoard; i++)
 		{
-			for(int j = 0; j < gameBoardButtons.length; j++)
+			for(int j = 0; j < heightOfBoard; j++)
 			{
 				if(SwingUtilities.isLeftMouseButton(e))
 				{
@@ -567,13 +562,13 @@ import javax.swing.SwingUtilities;
 						if(gameBoardButtons[i][j].getIcon() != image.getOrbImage())
 						{
 							
-							if(gameBoardCharacterArray[i][j] == '*' )
+							if(cell.isMine(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getMineImage());
 								explode();
 							}
 							
-							else if(gameBoardCharacterArray[i][j] == '0')
+							else if(cell.isNumber0(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber0Image());
 								zeroFill(i, j);
@@ -581,56 +576,56 @@ import javax.swing.SwingUtilities;
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '1')
+							else if(cell.isNumber1(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber1Image());
 								gameBoardCharacterArrayCopy[i][j] = '1';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '2')
+							else if(cell.isNumber2(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber2Image());
 								gameBoardCharacterArrayCopy[i][j] = '2';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '3')
+							else if(cell.isNumber3(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber3Image());
 								gameBoardCharacterArrayCopy[i][j] = '3';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '4')
+							else if(cell.isNumber4(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber4Image());
 								gameBoardCharacterArrayCopy[i][j] = '4';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '5')
+							else if(cell.isNumber5(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber5Image());
 								gameBoardCharacterArrayCopy[i][j] = '5';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '6')
+							else if(cell.isNumber6(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber6Image());
 								gameBoardCharacterArrayCopy[i][j] = '6';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '7')
+							else if(cell.isNumber7(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber7Image());
 								gameBoardCharacterArrayCopy[i][j] = '7';
 								isAllClear();
 							}
 						
-							else if(gameBoardCharacterArray[i][j] == '8')
+							else if(cell.isNumber8(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber8Image());
 								gameBoardCharacterArrayCopy[i][j] = '8';
@@ -665,7 +660,6 @@ import javax.swing.SwingUtilities;
 								&& gameBoardButtons[i][j].getIcon() != image.getMineImage())
 						{
 							gameBoardButtons[i][j].setIcon(image.getOrbImage());
-							
 							
 							gameBoardCharacterArrayCopy[i][j] = '*';
 							isAllClear();
