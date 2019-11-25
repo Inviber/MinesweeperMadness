@@ -5,6 +5,9 @@ public class ImageClass {
 	
 	
 	private ImageIcon tiles; 
+	private ImageIcon intermediateTile;
+	private ImageIcon intermediateOrb;
+	private ImageIcon intermediateMine;
 	private ImageIcon mine; 
 	private ImageIcon orb; 
 	private ImageIcon dungeon;
@@ -23,10 +26,12 @@ public class ImageClass {
 	private ImageIcon number8;
 	
 	
-	
 	public ImageClass()
 	{
 		tiles = new ImageIcon("Tile.png");
+		intermediateTile = new ImageIcon("intermediateTile.png");
+		intermediateMine = new ImageIcon("intermediateMine.png");
+		intermediateOrb = new ImageIcon("intermediateOrb.png"); 
 		mine = new ImageIcon("Mine.jpg");
 		orb = new ImageIcon("Orb.png");
 		dungeon = new ImageIcon("Dungeon.jpg");
@@ -83,20 +88,62 @@ public class ImageClass {
 		return crystalCaveImage;
 	}
 	
-	public ImageIcon getTileImage()
+	public ImageIcon getTileImage(int currentLevel)
 	{
+		if(currentLevel == 1)
+		{
+			return tiles;
+		}
+		if (currentLevel == 2)
+		{
+			return intermediateTile;
+		}
+		
+		if (currentLevel == 3)
+		{
+			return tiles;
+
+		}
 		return tiles;
 	}
 	
 	
-	public ImageIcon getMineImage()
+	public ImageIcon getMineImage(int currentLevel)
 	{
+		if(currentLevel == 1)
+		{
+			return mine;
+		}
+		if (currentLevel == 2)
+		{
+			return intermediateMine;
+		}
+		
+		if (currentLevel == 3)
+		{
+			return mine;
+
+		}
 		return mine;
 	}
 	
 	
-	public ImageIcon getOrbImage()
+	public ImageIcon getOrbImage(int currentLevel)
 	{
+		if(currentLevel == 1)
+		{
+			return orb;
+		}
+		if (currentLevel == 2)
+		{
+			return intermediateOrb;
+		}
+		
+		if (currentLevel == 3)
+		{
+			return orb;
+
+		}
 		return orb;
 	}
 	
@@ -156,3 +203,4 @@ public class ImageClass {
 	
 
 }
+

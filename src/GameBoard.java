@@ -49,7 +49,7 @@ import javax.swing.SwingUtilities;
 				
 				gameBoardButtons[i][j] = new JButton();
 				gameBoardButtons[i][j].setPreferredSize(new Dimension(10, 80));
-				gameBoardButtons[i][j].setIcon(image.getTileImage());
+				gameBoardButtons[i][j].setIcon(image.getTileImage(currentLevel));
 				gameBoardButtons[i][j].addMouseListener(this);		
 			}
 		}	
@@ -121,7 +121,7 @@ import javax.swing.SwingUtilities;
 				val = cell.explode(gameBoardCharacterArray, i, j);
 				
 				if(val == -1)
-					gameBoardButtons[i][j].setIcon(image.getMineImage());
+					gameBoardButtons[i][j].setIcon(image.getMineImage(currentLevel));
 				else if(val == 0)
 					gameBoardButtons[i][j].setIcon(image.getNumber0Image());
 				else if(val == 1)
@@ -559,12 +559,12 @@ import javax.swing.SwingUtilities;
 					if(e.getSource() == gameBoardButtons[i][j])
 					{
 						
-						if(gameBoardButtons[i][j].getIcon() != image.getOrbImage())
+						if(gameBoardButtons[i][j].getIcon() != image.getOrbImage(currentLevel))
 						{
 							
 							if(cell.isMine(gameBoardCharacterArray, i, j))
 							{
-								gameBoardButtons[i][j].setIcon(image.getMineImage());
+								gameBoardButtons[i][j].setIcon(image.getMineImage(currentLevel));
 								explode();
 							}
 							
@@ -640,9 +640,9 @@ import javax.swing.SwingUtilities;
 					if(e.getSource() == gameBoardButtons[i][j])
 					{
 						
-						if(gameBoardButtons[i][j].getIcon() == image.getOrbImage())
+						if(gameBoardButtons[i][j].getIcon() == image.getOrbImage(currentLevel))
 						{
-							gameBoardButtons[i][j].setIcon(image.getTileImage());
+							gameBoardButtons[i][j].setIcon(image.getTileImage(currentLevel));
 							
 							gameBoardCharacterArrayCopy[i][j] = ' ';
 							isAllClear();
@@ -657,9 +657,9 @@ import javax.swing.SwingUtilities;
 								&& gameBoardButtons[i][j].getIcon() != image.getNumber6Image()
 								&& gameBoardButtons[i][j].getIcon() != image.getNumber7Image()
 								&& gameBoardButtons[i][j].getIcon() != image.getNumber8Image()
-								&& gameBoardButtons[i][j].getIcon() != image.getMineImage())
+								&& gameBoardButtons[i][j].getIcon() != image.getMineImage(currentLevel))
 						{
-							gameBoardButtons[i][j].setIcon(image.getOrbImage());
+							gameBoardButtons[i][j].setIcon(image.getOrbImage(currentLevel));
 							
 							gameBoardCharacterArrayCopy[i][j] = '*';
 							isAllClear();
