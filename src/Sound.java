@@ -19,7 +19,7 @@ public class Sound {
 	}
 
 	catch(FileNotFoundException fnfe){
-	System.out.println("The audio file was not found");
+	System.out.println("File not found");
 	}
 
 	try{
@@ -28,7 +28,7 @@ public class Sound {
 
 	catch(IOException ie){
 
-	System.out.println("Audio stream could not be created");
+	System.out.println("Error");
 	}
 
 	AudioPlayer.player.start(as);
