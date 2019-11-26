@@ -15,7 +15,6 @@ public class Sound {
 	AudioStream as = null;
 
 	try{
-	//create audio data source
 	in = new FileInputStream(filename);
 	}
 
@@ -24,7 +23,6 @@ public class Sound {
 	}
 
 	try{
-	//create audio stream from file stream
 	as = new AudioStream(in);
 	}
 
