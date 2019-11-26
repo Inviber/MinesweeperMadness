@@ -7,7 +7,6 @@ public class ImageClass {
 	private ImageIcon tiles; 
 	private ImageIcon intermediateTile;
 	private ImageIcon intermediateOrb;
-	private ImageIcon intermediateMine;
 	private ImageIcon mine; 
 	private ImageIcon orb; 
 	private ImageIcon dungeon;
@@ -30,9 +29,8 @@ public class ImageClass {
 	{
 		tiles = new ImageIcon("Tile.png");
 		intermediateTile = new ImageIcon("intermediateTile.png");
-		intermediateMine = new ImageIcon("intermediateMine.png");
 		intermediateOrb = new ImageIcon("intermediateOrb.png"); 
-		mine = new ImageIcon("Mine.jpg");
+		mine = new ImageIcon("mines.png");
 		orb = new ImageIcon("Orb.png");
 		dungeon = new ImageIcon("Dungeon.jpg");
 		sanctuary = new ImageIcon("Sanctuary.jpg");
@@ -116,7 +114,7 @@ public class ImageClass {
 		}
 		if (currentLevel == 2)
 		{
-			return intermediateMine;
+			return mine;
 		}
 		
 		if (currentLevel == 3)
@@ -203,4 +201,3 @@ public class ImageClass {
 	
 
 }
-
