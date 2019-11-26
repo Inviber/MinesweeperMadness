@@ -564,6 +564,7 @@ import javax.swing.SwingUtilities;
 							
 							if(cell.isMine(gameBoardCharacterArray, i, j))
 							{
+								Sound.playAudio("src/explode.wav");
 								gameBoardButtons[i][j].setIcon(image.getMineImage(currentLevel));
 								explode();
 							}
@@ -571,6 +572,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber0(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber0Image());
+								Sound.playAudio("src/safe.wav");
 								zeroFill(i, j);
 								gameBoardCharacterArrayCopy[i][j] = '0';
 								isAllClear();
@@ -579,6 +581,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber1(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber1Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '1';
 								isAllClear();
 							}
@@ -586,6 +589,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber2(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber2Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '2';
 								isAllClear();
 							}
@@ -593,6 +597,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber3(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber3Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '3';
 								isAllClear();
 							}
@@ -600,6 +605,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber4(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber4Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '4';
 								isAllClear();
 							}
@@ -607,6 +613,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber5(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber5Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '5';
 								isAllClear();
 							}
@@ -614,6 +621,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber6(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber6Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '6';
 								isAllClear();
 							}
@@ -621,6 +629,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber7(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber7Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '7';
 								isAllClear();
 							}
@@ -628,6 +637,7 @@ import javax.swing.SwingUtilities;
 							else if(cell.isNumber8(gameBoardCharacterArray, i, j))
 							{
 								gameBoardButtons[i][j].setIcon(image.getNumber8Image());
+								Sound.playAudio("src/safe.wav");
 								gameBoardCharacterArrayCopy[i][j] = '8';
 								isAllClear();
 							}
@@ -642,6 +652,7 @@ import javax.swing.SwingUtilities;
 						
 						if(gameBoardButtons[i][j].getIcon() == image.getOrbImage(currentLevel))
 						{
+							Sound.playAudio("src/orb.wav");
 							gameBoardButtons[i][j].setIcon(image.getTileImage(currentLevel));
 							
 							gameBoardCharacterArrayCopy[i][j] = ' ';
@@ -659,6 +670,7 @@ import javax.swing.SwingUtilities;
 								&& gameBoardButtons[i][j].getIcon() != image.getNumber8Image()
 								&& gameBoardButtons[i][j].getIcon() != image.getMineImage(currentLevel))
 						{
+							Sound.playAudio("src/orb.wav");
 							gameBoardButtons[i][j].setIcon(image.getOrbImage(currentLevel));
 							
 							gameBoardCharacterArrayCopy[i][j] = '*';
