@@ -72,6 +72,7 @@ public class Game {
 			setWidthOfFrame(690);
 			setHeightOfFrame(800);
 			imageLabel.setIcon(image.getDungeonImage());
+			Music.playMusic("src/Propertiming.wav");
 		}
 		
 		else if(levelOption == 2)
@@ -82,7 +83,7 @@ public class Game {
 			setWidthOfFrame(850);
 			setHeightOfFrame(1000);
 			imageLabel.setIcon(image.getSanctuaryImage());
-			
+			//Music.playMusic("src/");
 		}
 		
 		else if(levelOption == 3)
@@ -93,6 +94,7 @@ public class Game {
 			setWidthOfFrame(900);
 			setHeightOfFrame(1030);
 			imageLabel.setIcon(image.getDragonImage());
+			//Music.playMusic("src/");
 		}
 	}
 	

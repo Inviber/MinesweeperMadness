@@ -151,7 +151,6 @@ import javax.swing.SwingUtilities;
 		JOptionPane.showMessageDialog(null, "Game Over!");
 		gameFrame.dispose();
 		playAgainMenu.gameOver(currentLevel);
-		
 	}
 	
 	

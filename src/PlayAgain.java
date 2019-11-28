@@ -84,6 +84,8 @@ public class PlayAgain implements MouseListener {
 	    frame.setResizable(false);
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
+	    
+	    Music.stopMusic("src/Propertiming.wav");
 	}
 	
 	
