@@ -3,16 +3,18 @@ import javax.swing.ImageIcon;
 
 public class ImageClass {
 	
-	
-	private ImageIcon tiles; 
+	private ImageIcon beginnerTile; 
 	private ImageIcon intermediateTile;
 	private ImageIcon intermediateOrb;
 	private ImageIcon mine; 
-	private ImageIcon orb; 
+	private ImageIcon beginnerOrb; 
 	private ImageIcon dungeon;
 	private ImageIcon sanctuary;
 	private ImageIcon dragon;
 	private ImageIcon crystalCave;
+	private ImageIcon knightImage;
+	private ImageIcon catWizardImage;
+	private ImageIcon warriorMageImage;
 	
 	private ImageIcon number0;
 	private ImageIcon number1;
@@ -27,15 +29,18 @@ public class ImageClass {
 	
 	public ImageClass()
 	{
-		tiles = new ImageIcon("Tile.png");
+		beginnerTile = new ImageIcon("Tile.png");
 		intermediateTile = new ImageIcon("intermediateTile.png");
 		intermediateOrb = new ImageIcon("intermediateOrb.png"); 
 		mine = new ImageIcon("mines.png");
-		orb = new ImageIcon("Orb.png");
+		beginnerOrb = new ImageIcon("Orb.png");
 		dungeon = new ImageIcon("Dungeon.jpg");
 		sanctuary = new ImageIcon("Sanctuary.jpg");
 		dragon = new ImageIcon("DragonLair.jpg");
 		crystalCave = new ImageIcon("CrystalCave.jpg");
+		knightImage = new ImageIcon("KnightImage1.png");
+		catWizardImage = new ImageIcon("CatMage.png");
+		warriorMageImage = new ImageIcon("WarriorMageImage.png");
 		
 		number0 = new ImageIcon("Number0.png");
 		number1 = new ImageIcon("Number1.png");
@@ -86,23 +91,55 @@ public class ImageClass {
 		return crystalCaveImage;
 	}
 	
+	public ImageIcon getKnightImage()
+	{
+		Image img = knightImage.getImage();
+		Image knightImg = img.getScaledInstance(960, 480, Image.SCALE_SMOOTH);
+		ImageIcon knightImageNew = new ImageIcon(knightImg);
+		
+		return knightImageNew;
+	}
+	
+	public ImageIcon getWizardImage()
+	{
+		Image img = catWizardImage.getImage();
+		Image mageImg = img.getScaledInstance(893, 580, Image.SCALE_SMOOTH);
+		ImageIcon catMageImageNew = new ImageIcon(mageImg);
+		
+		return catMageImageNew;
+	}
+	
+	public ImageIcon getWarriorMageImage()
+	{
+		Image img = warriorMageImage.getImage();
+		Image wMImg = img.getScaledInstance(893, 530, Image.SCALE_SMOOTH);
+		ImageIcon warriorMageImageNew = new ImageIcon(wMImg);
+		
+		return warriorMageImageNew;
+	}
+	
 	public ImageIcon getTileImage(int currentLevel)
 	{
 		if(currentLevel == 1)
 		{
-			return tiles;
+			return beginnerTile;
 		}
-		if (currentLevel == 2)
+		
+		else if (currentLevel == 2)
 		{
 			return intermediateTile;
 		}
 		
-		if (currentLevel == 3)
+		else if (currentLevel == 3)
 		{
-			return tiles;
+			return beginnerTile;
 
 		}
-		return tiles;
+		
+		else
+		{
+			return beginnerTile;
+		}
 	}
 	
 	
@@ -130,7 +167,7 @@ public class ImageClass {
 	{
 		if(currentLevel == 1)
 		{
-			return orb;
+			return beginnerOrb;
 		}
 		if (currentLevel == 2)
 		{
@@ -139,10 +176,10 @@ public class ImageClass {
 		
 		if (currentLevel == 3)
 		{
-			return orb;
+			return beginnerOrb;
 
 		}
-		return orb;
+		return beginnerOrb;
 	}
 	
 	
@@ -198,6 +235,4 @@ public class ImageClass {
 	{
 		return number8;
 	}
-	
-
 }
