@@ -3,15 +3,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class PlayAgain implements MouseListener {
+public class PlayAgain implements ActionListener {
 	
 	private JFrame frame = new JFrame();
 	private JButton playAgainButton = new JButton("Play Level Again");
@@ -40,10 +39,20 @@ public class PlayAgain implements MouseListener {
 	    mainPanel.setBackground(Color.BLACK);
 	    buttonPanel.setBackground(Color.BLACK);
 	    
+	    playAgainButton.setBackground(Color.WHITE);
+	    startMenuButton.setBackground(Color.WHITE);
+	    exitButton.setBackground(Color.WHITE);
+	    playNextButton.setBackground(Color.WHITE);
+	    
 	    playAgainButton.setPreferredSize(new Dimension(150, 60));
 	    startMenuButton.setPreferredSize(new Dimension(150, 60));
 	    exitButton.setPreferredSize(new Dimension(150, 60));
 	    playNextButton.setPreferredSize(new Dimension(150, 60));
+	    
+	    playAgainButton.addActionListener(this);
+	    startMenuButton.addActionListener(this);
+	    exitButton.addActionListener(this);
+	    playNextButton.addActionListener(this);
 		
 	}
 	
@@ -61,20 +70,11 @@ public class PlayAgain implements MouseListener {
 		tittleLabel.setFont(font);
 		
 	    buttonPanel.setLayout(new GridLayout(3,1, 2, 8));
-	    
-	    playAgainButton.setBackground(Color.WHITE);
-	    startMenuButton.setBackground(Color.WHITE);
-	    exitButton.setBackground(Color.WHITE);
-	    
-	    playAgainButton.addMouseListener(this);
-	    startMenuButton.addMouseListener(this);
-	    exitButton.addMouseListener(this);
-	    
+	   
 	    buttonPanel.add(playAgainButton);
 	    buttonPanel.add(startMenuButton);
 	    buttonPanel.add(exitButton);
-	    
-	    
+	     
 	    mainPanel.add(tittleLabel);
 	    mainPanel.add(imageLabel);
 	    
@@ -102,16 +102,15 @@ public class PlayAgain implements MouseListener {
 			tittleLabel.setForeground(Color.WHITE);
 			tittleLabel.setFont(font);
 			
-		    
+			buttonPanel.setLayout(new GridLayout(2,1, 2, 8));
+			buttonPanel.add(startMenuButton);
+		    buttonPanel.add(exitButton);
+		
 		    mainPanel.add(tittleLabel);
 		    mainPanel.add(imageLabel);
 		    
-		    frame.add(mainPanel, BorderLayout.CENTER);
-		    
-		    frame.setResizable(false);
-		    frame.setLocationRelativeTo(null);
-		    frame.setVisible(true);
-		    
+		    frame.add(buttonPanel, BorderLayout.SOUTH);
+		    frame.add(mainPanel, BorderLayout.CENTER);	    
 		}
 		
 		else 
@@ -126,14 +125,6 @@ public class PlayAgain implements MouseListener {
 			
 		    buttonPanel.setLayout(new GridLayout(3,1, 2, 8));
 		    
-		    playNextButton.setBackground(Color.WHITE);
-		    startMenuButton.setBackground(Color.WHITE);
-		    exitButton.setBackground(Color.WHITE);
-		    
-		    playNextButton.addMouseListener(this);
-		    startMenuButton.addMouseListener(this);
-		    exitButton.addMouseListener(this);
-		    
 		    buttonPanel.add(playNextButton);
 		    buttonPanel.add(startMenuButton);
 		    buttonPanel.add(exitButton);
@@ -145,17 +136,16 @@ public class PlayAgain implements MouseListener {
 		    frame.add(buttonPanel, BorderLayout.SOUTH);
 		    frame.add(mainPanel, BorderLayout.CENTER);
 		    
-		    frame.setResizable(false);
-		    frame.setLocationRelativeTo(null);
-		    frame.setVisible(true);
 		}
 		
-		
+		frame.setResizable(false);
+	    frame.setLocationRelativeTo(null);
+	    frame.setVisible(true);
 	}
 
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == playAgainButton)
 		{
@@ -183,32 +173,5 @@ public class PlayAgain implements MouseListener {
 		
 	}
 
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
