@@ -94,7 +94,7 @@ public class PlayAgain implements MouseListener {
 		
 		if(currentLevel == MAX_LEVEL)
 		{
-			tittleLabel = new JLabel("Congragulations You Finished the Game!");
+			tittleLabel = new JLabel("Congratulations, You Finished the Game!");
 			Font font = new Font("Bell MT",Font.BOLD,55);
 			
 			//imageLabel.setIcon(image.getCrystalCaveImage());
@@ -116,7 +116,7 @@ public class PlayAgain implements MouseListener {
 		
 		else 
 		{
-			tittleLabel = new JLabel("Congragulations!");
+			tittleLabel = new JLabel("Congratulations!");
 			Font font = new Font("Bell MT",Font.BOLD,55);
 			
 			//imageLabel.setIcon(image.getCrystalCaveImage());

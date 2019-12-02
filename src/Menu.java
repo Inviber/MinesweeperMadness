@@ -13,9 +13,9 @@ import javax.swing.JPanel;
 public class Menu implements MouseListener {
 	
 	private JFrame frame = new JFrame();
-	private JButton level1Button = new JButton("Beginner Level");
-	private JButton level2Button = new JButton("Intermediate Level");
-	private JButton level3Button = new JButton("Expert Level");
+	private JButton level1Button = new JButton("Beginner Level (5x5)");
+	private JButton level2Button = new JButton("Intermediate Level (7x7)");
+	private JButton level3Button = new JButton("Expert Level (9x9)");
 	
 	private ImageClass image = new ImageClass();
 	private Game game = new Game();
