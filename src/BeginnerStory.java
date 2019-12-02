@@ -169,7 +169,7 @@ public class BeginnerStory implements ActionListener {
 		{
 			label.setText("<html>KNIGHT:<br/>"
 					+ "Are You Sure You Won't Blow Us Up Again!?<br/>"
-					+ "Well...I Guess I Have No Choie But To Trust You...<br/>"
+					+ "Well...I Guess I Have No Choice But To Trust You...<br/>"
 					+ "But I Am Going to Take Cover In Our Cell Lest You Do<br/>"
 					+ "Detonate Another Mine!! Also, Stop Giving Me That Look!<br/>"
 					+ "I Value My Life Okay!!</html>");
