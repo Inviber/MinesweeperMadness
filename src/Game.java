@@ -10,8 +10,8 @@ public class Game {
 	
 	private JButton[][] userGameBoardButtons;
 	private char[][] uesrGameBoardCharacterArray;
-	public GameBoard gameBoard;
-	JFrame frame = new JFrame();
+	private GameBoard gameBoard;
+	private JFrame frame = new JFrame();
 	private JPanel panelGameBoard;
 	private JLabel imageLabel = new JLabel();
 	private JPanel panelFormatForFrame;
@@ -69,7 +69,7 @@ public class Game {
 			setWidthOfBoard(5);
 			setHeightOfBoard(5);
 			
-			setWidthOfFrame(690);
+			setWidthOfFrame(680);
 			setHeightOfFrame(800);
 			imageLabel.setIcon(image.getDungeonImage());
 		}
@@ -155,14 +155,6 @@ public class Game {
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 	}
-	
-	
-	public boolean isGameOver()
-	{
-			return false;
-	}
-	
-	
 	
 
 }
