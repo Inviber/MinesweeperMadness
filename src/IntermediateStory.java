@@ -1,4 +1,3 @@
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -31,7 +30,7 @@ public class IntermediateStory implements ActionListener {
 	
 	public IntermediateStory()
 	{
-	    frame.setSize(900, 900);
+		frame.setSize(900, 900);
 	    frame.setTitle("Minesweeper Madness");
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   
@@ -267,7 +266,7 @@ public class IntermediateStory implements ActionListener {
 		
 		else if(countUpdate == 8)
 		{
-			optionButton1.setText("Say How He Bravely Devided To Stay Behind");
+			optionButton1.setText("Say How He Bravely Decided To Stay Behind");
 			optionButton2.setText("Say How He Corageously Stayed Behind");
 		}
 		
