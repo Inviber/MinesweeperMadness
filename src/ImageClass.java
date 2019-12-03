@@ -6,8 +6,6 @@ public class ImageClass {
 	private ImageIcon beginnerTile; 
 	private ImageIcon intermediateTile;
 	private ImageIcon intermediateOrb;
-	private ImageIcon expertTile;
-	private ImageIcon expertOrb;
 	private ImageIcon mine; 
 	private ImageIcon beginnerOrb; 
 	private ImageIcon dungeon;
@@ -17,6 +15,12 @@ public class ImageClass {
 	private ImageIcon knightImage;
 	private ImageIcon catWizardImage;
 	private ImageIcon warriorMageImage;
+	private ImageIcon happyWizardCat;
+	private ImageIcon sadWizardCat;
+	private ImageIcon angryKnight;
+	private ImageIcon angryWarriorSorceress;
+	private ImageIcon happyKnight;
+	private ImageIcon happyWarriorSorceress;
 	
 	private ImageIcon number0;
 	private ImageIcon number1;
@@ -34,8 +38,6 @@ public class ImageClass {
 		beginnerTile = new ImageIcon("Tile.png");
 		intermediateTile = new ImageIcon("intermediateTile.png");
 		intermediateOrb = new ImageIcon("intermediateOrb.png"); 
-		expertTile = new ImageIcon("expertTile.png");
-		expertOrb = new ImageIcon("expertOrb.png"); 
 		mine = new ImageIcon("mines.png");
 		beginnerOrb = new ImageIcon("Orb.png");
 		dungeon = new ImageIcon("Dungeon.jpg");
@@ -45,6 +47,13 @@ public class ImageClass {
 		knightImage = new ImageIcon("KnightImage1.png");
 		catWizardImage = new ImageIcon("CatMage.png");
 		warriorMageImage = new ImageIcon("WarriorMageImage.png");
+		happyWizardCat = new ImageIcon("HappyWizardCat.png");
+		sadWizardCat = new ImageIcon("SadWizardCat.png");
+		angryKnight = new ImageIcon("AngryKnight.png");
+		angryWarriorSorceress = new ImageIcon("AngryWarriorSorceress.png");
+		happyKnight = new ImageIcon("HappyKnight.png");
+		happyWarriorSorceress = new ImageIcon("HappyWarriorSorceress.png");
+		
 		
 		number0 = new ImageIcon("Number0.png");
 		number1 = new ImageIcon("Number1.png");
@@ -104,6 +113,25 @@ public class ImageClass {
 		return knightImageNew;
 	}
 	
+	public ImageIcon getAngryKnight()
+	{
+		Image img = angryKnight.getImage();
+		Image knightImg = img.getScaledInstance(893, 445, Image.SCALE_SMOOTH);
+		ImageIcon angryKnightImageNew = new ImageIcon(knightImg);
+		
+		return angryKnightImageNew;
+	}
+	
+	public ImageIcon getHappyKnight()
+	{
+		Image img = happyKnight.getImage();
+		Image knightImg = img.getScaledInstance(893, 445, Image.SCALE_SMOOTH);
+		ImageIcon happyKnightImageNew = new ImageIcon(knightImg);
+		
+		return happyKnightImageNew;
+	}
+	
+	
 	public ImageIcon getWizardImage()
 	{
 		Image img = catWizardImage.getImage();
@@ -113,6 +141,25 @@ public class ImageClass {
 		return catMageImageNew;
 	}
 	
+	public ImageIcon getHappyWizardImage()
+	{
+		Image img = happyWizardCat.getImage();
+		Image mageImg = img.getScaledInstance(893, 445, Image.SCALE_SMOOTH);
+		ImageIcon happyWizardImageNew = new ImageIcon(mageImg);
+		
+		return happyWizardImageNew;
+	}
+	
+	public ImageIcon getSadWizardImage()
+	{
+		Image img = sadWizardCat.getImage();
+		Image mageImg = img.getScaledInstance(893, 445, Image.SCALE_SMOOTH);
+		ImageIcon sadWizardImageNew = new ImageIcon(mageImg);
+		
+		return sadWizardImageNew;
+	}
+	
+	
 	public ImageIcon getWarriorMageImage()
 	{
 		Image img = warriorMageImage.getImage();
@@ -121,6 +168,26 @@ public class ImageClass {
 		
 		return warriorMageImageNew;
 	}
+	
+	
+	public ImageIcon getAngryWarriorSorceress()
+	{
+		Image img = angryWarriorSorceress.getImage();
+		Image angryWS = img.getScaledInstance(893, 475, Image.SCALE_SMOOTH);
+		ImageIcon angryWSImageNew = new ImageIcon(angryWS);
+		
+		return angryWSImageNew;
+	}
+	
+	public ImageIcon getHappyWarriorSorceress()
+	{
+		Image img = happyWarriorSorceress.getImage();
+		Image happyWS = img.getScaledInstance(893, 475, Image.SCALE_SMOOTH);
+		ImageIcon happyWSImageNew = new ImageIcon(happyWS);
+		
+		return happyWSImageNew;
+	}
+	
 	
 	public ImageIcon getTileImage(int currentLevel)
 	{
@@ -136,7 +203,7 @@ public class ImageClass {
 		
 		else if (currentLevel == 3)
 		{
-			return expertTile;
+			return beginnerTile;
 
 		}
 		
@@ -180,7 +247,7 @@ public class ImageClass {
 		
 		if (currentLevel == 3)
 		{
-			return expertOrb;
+			return beginnerOrb;
 
 		}
 		return beginnerOrb;
