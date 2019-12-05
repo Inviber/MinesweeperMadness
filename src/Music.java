@@ -7,34 +7,32 @@ import sun.audio.AudioStream;
 
 public class Music {
 	
-	public static void playMusic(String filename)
+	static InputStream music = null;
+	static AudioStream audio = null;
+	
+	public static void getMusicFile(String filename)
 	{
-		InputStream music;
 		try
 		{
 			music = new FileInputStream(new File(filename));
-			AudioStream sound = new AudioStream(music);
-			AudioPlayer.player.start(sound);
+			audio = new AudioStream(music);
+			
 		}
 		catch (Exception e)
 		{
 			System.out.println("Error");
 		}
-		
 	}
 	
-	public static void stopMusic(String filename)
+	
+	public static void play()
 	{
-		InputStream music;
-		try
-		{
-			music = new FileInputStream(new File(filename));
-			AudioStream sound = new AudioStream(music);
-			AudioPlayer.player.stop(sound);
-		}
-		catch (Exception e)
-		{
-			System.out.println("Error");
-		}
+		
+		AudioPlayer.player.start(audio);
+	}
+	
+	public static void stop()
+	{
+		AudioPlayer.player.stop(audio);
 	}
 }

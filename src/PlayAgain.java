@@ -85,7 +85,7 @@ public class PlayAgain implements MouseListener {
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 	    
-	    Music.stopMusic("src/Propertiming.wav");
+	    Music.stop();
 	}
 	
 	
@@ -114,6 +114,7 @@ public class PlayAgain implements MouseListener {
 		    frame.setLocationRelativeTo(null);
 		    frame.setVisible(true);
 		    
+		    Music.stop();
 		}
 		
 		else 
@@ -150,6 +151,8 @@ public class PlayAgain implements MouseListener {
 		    frame.setResizable(false);
 		    frame.setLocationRelativeTo(null);
 		    frame.setVisible(true);
+		    
+		    Music.stop();
 		}
 		
 		
