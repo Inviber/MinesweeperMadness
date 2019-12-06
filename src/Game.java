@@ -11,7 +11,7 @@ public class Game {
 	private JButton[][] userGameBoardButtons;
 	private char[][] uesrGameBoardCharacterArray;
 	public GameBoard gameBoard;
-	JFrame frame = new JFrame();
+	private JFrame frame = new JFrame();
 	private JPanel panelGameBoard;
 	private JLabel imageLabel = new JLabel();
 	private JPanel panelFormatForFrame;
@@ -161,13 +161,4 @@ public class Game {
 	    frame.setVisible(true);
 	}
 	
-	
-	public boolean isGameOver()
-	{
-			return false;
-	}
-	
-	
-	
-
 }

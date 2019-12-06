@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-
  class GameBoard implements MouseListener  {
 	
 	private JButton[][] gameBoardButtons;
@@ -283,6 +282,7 @@ import javax.swing.SwingUtilities;
 				if(gameBoardCharacterArray[cellX-1][cellY] == '3') {
 					gameBoardButtons[cellX-1][cellY].setIcon(image.getNumber3Image());
 					gameBoardCharacterArrayCopy[cellX-1][cellY] = '3';
+					//++clickedCells;
 				}
 			}
 
@@ -290,6 +290,7 @@ import javax.swing.SwingUtilities;
 				if(gameBoardCharacterArray[cellX][cellY-1] == '3') {
 					gameBoardButtons[cellX][cellY-1].setIcon(image.getNumber3Image());
 					gameBoardCharacterArrayCopy[cellX][cellY-1] = '3';
+					//++clickedCells;
 				}
 			}
 
