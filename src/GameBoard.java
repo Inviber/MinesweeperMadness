@@ -536,7 +536,7 @@ import javax.swing.SwingUtilities;
 		
 		if(count != 1)
 		{
-			JOptionPane.showMessageDialog(null, "Congragulations");
+			JOptionPane.showMessageDialog(null, "Congratulations!");
 			gameFrame.dispose();
 			playAgainMenu.continueGame(currentLevel);
 		}

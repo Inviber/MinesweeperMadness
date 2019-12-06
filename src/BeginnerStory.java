@@ -2,11 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,27 +14,38 @@ public class BeginnerStory implements ActionListener {
 	
 	private JFrame frame = new JFrame();
 	private JLabel label;
-	private JButton optionButton1 = new JButton("Wake Up!");
-	private JButton optionButton2 = new JButton("Don't Wake Up!");
+	private JButton optionButton1 = new JButton("Wake Up");
+	private JButton optionButton2 = new JButton("Continue To Sleep");
+	private JButton skipButton = new JButton("Skip Story");
 	private JPanel storyPanel = new JPanel();
-	private JPanel imagePanel = new JPanel();
 	private JPanel buttonPanel = new JPanel();
+	private JLabel imageLabel = new JLabel();
 	private int countUpdate;
 	private boolean finishedStory = false;
+	private final int BEGINNER_LEVEL = 1;
 	
 	private Game game = new Game();
+	private ImageClass image = new ImageClass();
 	
 	
 	public BeginnerStory()
 	{
-		frame.setSize(700, 700);
+		frame.setSize(900, 900);
 	    frame.setTitle("Minesweeper Madness");
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	   
-	    optionButton1.setPreferredSize(new Dimension(200, 50));
-	    optionButton2.setPreferredSize(new Dimension(200, 50));
+	    optionButton1.setPreferredSize(new Dimension(300, 50));
+	    optionButton2.setPreferredSize(new Dimension(300, 50));
+	    skipButton.setPreferredSize(new Dimension(300, 50));
+	    
+	    optionButton1.setBackground(Color.WHITE);
+	    optionButton2.setBackground(Color.WHITE);
+	    skipButton.setBackground(Color.WHITE);
+	    
 	    optionButton1.addActionListener(this);
 	    optionButton2.addActionListener(this);
+	    skipButton.addActionListener(this);
+	    
 	    storyPanel.setBackground(Color.BLACK);
 	    buttonPanel.setBackground(Color.BLACK);
 	    
@@ -47,26 +56,24 @@ public class BeginnerStory implements ActionListener {
 	{
 		Font font = new Font("Bell MT",Font.BOLD,20);
 		
-		label = new JLabel("HEY! WAKE UP!");
+		label = new JLabel("<html>KNIGHT:<br/>HEY! WAKE UP!</html>");
 		
 		label.setFont(font);
 		
 		label.setForeground(Color.WHITE);
 		
-		storyPanel.add(label);
+		imageLabel.setIcon(image.getKnightImage());
 		
-		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
+		storyPanel.add(imageLabel, BorderLayout.NORTH);
+		storyPanel.add(label, BorderLayout.CENTER);
 		
-		buttonPanel.add(optionButton1);
-		buttonPanel.add(Box.createHorizontalGlue());
+        buttonPanel.setLayout(new GridLayout(1,3, 2, 8));
+        buttonPanel.add(optionButton1);
         buttonPanel.add(optionButton2);
-        
-        frame.setVisible(true);
-		
+        buttonPanel.add(skipButton);
         
         frame.add(storyPanel, BorderLayout.CENTER);
 		frame.add(buttonPanel, BorderLayout.SOUTH);
-		
 		
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
@@ -80,7 +87,7 @@ public class BeginnerStory implements ActionListener {
 		if(finishedStory != false)
 		{
 			frame.dispose();
-			game.playGame(1);
+			game.playGame(BEGINNER_LEVEL);
 		}
 	}
 	
@@ -89,95 +96,108 @@ public class BeginnerStory implements ActionListener {
 	{
 		if(countUpdate == 0)
 		{
-			label.setText("<html>Hey Come On! Get Up!<br/>Do You Want to Die Here!?!?</html>");
+			label.setText("<html>KNIGHT:<br/>"
+					+ "Hey Come On! Get Up!<br/>Do You Want To Die Here!?!?</html>");
 		}
 		
 		else if(countUpdate == 1)
 		{
-			label.setText("<html>What's with that Look!?<br/>"
-					+ "...You Don't Know Where We Are!?!<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "What's With That Look!?<br/>"
+					+ "Ummm...You Don't Know Where We Are!?!<br/>"
 					+ "WAIT...Do You Even Know Who You Are!?!<br/>"
 					+ "....OH GOD...WE ARE SO SCREWED!!!</html>");
 		}
 		
 		else if(countUpdate == 2)
 		{
-			label.setText("<html>Okay, Okay! Geez...That Blast Must Have<br/>"
-					+ "Knocked the Memories Right Out of You...<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "Okay, Okay! Geez...That Blast Must Have<br/>"
+					+ "Knocked The Memories Right Out Of You...<br/>"
 					+ "Oh Well...We Should Be Fine....<br/>"
 					+ "I Think....</html>");
 		}
 		
 		else if(countUpdate == 3)
 		{
-			label.setText("<html>You Are the Great Minesweeper!!!!<br/>"
-					+ "That's Right...You Are the Person Who is Legendary In This<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "You Are The Great Minesweeper!!!!<br/>"
+					+ "That's Right...You Are A Person Who is Legendary In This<br/>"
 					+ "World For Being Able to Clear Mines On Any Battlefield,<br/>"
 					+ "Dungeon, You Name It!</html>");
 		}
 		
 		else if(countUpdate == 4)
 		{
-			label.setText("<html>....HAHAHAHA YEAH RIGHT!!!<br/>"
-					+ "How Could YOU Ever Be the GREAT MINESWEEPER!?<br/>"
-					+ "Oh God My Side Hurts From Laughing So Much!<br/>"
-					+ "Thanks For That Laugh Kid I So Needed That Today!</html>");
+			label.setText("<html>KNIGHT:<br/>"
+					+ "....HAHAHAHA YEAH RIGHT!!!<br/>"
+					+ "How Could YOU Ever Be The GREAT MINESWEEPER!?<br/>"
+					+ "Oh God! My Sides Hurt From Laughing So Much!<br/>"
+					+ "Thanks For That Laugh!! I So Needed That Today!</html>");
 		}
 		
 		else if(countUpdate == 5)
 		{
-			label.setText("<html>You're Just Thier Apprentice Who Was<br/>"
-					+ "Sent to Deal With the Mines In This Tower.<br/>"
-					+ "Though, I Guess You Are a Mediocre Apprentice <br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "You're Just The Great MineSweeper's Apprentice Who Was<br/>"
+					+ "Sent To Deal With The Mines In This Tower.<br/>"
+					+ "Though, I Guess You Are A Mediocre Apprentice <br/>"
 					+ "Because You Completely Screwed Up and Ended Up<br/>"
-					+ "Detonating a Mine!!</html>");
+					+ "Detonating A Mine And Almost Getting Us Killed!!</html>");
 		}
 		
 		else if(countUpdate == 6)
 		{
-			label.setText("<html>You Are Lucky That the Blast Didn't Hit<br/>"
-					+ "You Fully But You Notified the Enemy of Our Location<br/>"
-					+ "And Got Us Locked Up In Here!<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "You Are Lucky That The Blast Didn't Hit<br/>"
+					+ "You Fully But You Notified The Enemy Of Our Location!<br/>"
+					+ "That Got Us Locked Up In Here!<br/>"
 					+ "So Thanks For That...</html>");
 		}
 		
 		else if(countUpdate == 7)
 		{
-			label.setText("<html>*Sigh...We Have to Figure Out A Way to<br/>"
-					+ "Get Back to the Rest of Our Team. I Broke Us Out<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "*SIGH...<br/>"
+					+ "We Have To Figure Out A Way To<br/>"
+					+ "Get Back To The Rest of Our Team. I Broke Us Out<br/>"
 					+ "Of Our Cell But the Dungeon Exit Has a Mine Puzzle<br/>"
 					+ "Trap Blocking Us And I Have No Clue How To Solve It.</html>");
 		}
 		
 		else if(countUpdate == 8)
 		{
-			label.setText("<html>Are You Sure You Won't Blow Us Up Again!?<br/>"
-					+ "Well...I Guess I Have No Choie But To Trust You...<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "Are You Sure You Won't Blow Us Up Again!?<br/>"
+					+ "Well...I Guess I Have No Choice But To Trust You...<br/>"
 					+ "But I Am Going to Take Cover In Our Cell Lest You Do<br/>"
-					+ "Detonate Another Mine!! Stop Giving Me That Look!<br/>"
+					+ "Detonate Another Mine!! Also, Stop Giving Me That Look!<br/>"
 					+ "I Value My Life Okay!!</html>");
 		}
 		
 		else if(countUpdate == 9)
 		{
-			label.setText("<html>Okay I'm Going to Give You These Orbs.<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "Okay I'm Going To Give You These Orbs.<br/>"
 					+ "When You Think There Is A Mine Under A Certain Tile<br/>"
-					+ "Place the Orb on the Tile So It Can Neutralize the Mine.<br/>"
-					+ "All Tiles With Mines Have to Have An Orb On It OtherWise<br/>"
+					+ "Place The Orb On The Tile So It Can Neutralize The Mine.<br/>"
+					+ "All Tiles With Mines Have To Have An Orb On It Otherwise<br/>"
 					+ "The Orb Magic Won't Work!!</html>");
 		}
 		
 		else if(countUpdate == 10)
 		{
-			label.setText("<html>Don't Look At Me Like That I Have No Idea<br/>"
-					+ "What the Heck the Orb Magic Is!!<br/>"
-					+ " What Am I, A Wizard!?!<br/>"
-					+ "OH! Almost Forgot! You Also Need To Clear All Tiles <br/>"
-					+ "In Order for the Orbs to Fully Work. When Clearing A Tile<br/>"
-					+ "It Should Give You a Hint of How Many Mines Are Near That Tile.<br/>"
-					+ "But You Knew That Since You Are the Apprentice of the Great MineSweeper!<br/>"
+			label.setText("<html>KNIGHT:<br/>"
+					+ "Don't Look At Me Like That!!<br/>"
+					+ "I Have No Idea What The Heck Orb Magic Is!!<br/>"
+					+ "What Am I, A Wizard!?!<br/>"
+					+ "OH! Almost Forgot! You Also Need To Clear All Surrounding Tiles<br/>"
+					+ "In Order For The Orbs To Fully Work.<br/>"
+					+ "When Clearing A Tile It Should Give You a Hint of How Many Mines<br/>"
+					+ "Are Near That Tile.<br/>"
+					+ "But You Knew That Since You Are the Apprentice of the Great MineSweeper!!<br/>"
 					+ "Okay Good Luck! Don't Die!<br/>"
-					+ " And Most Importantly Don't Let Me Be Trapped Down Here!</html>");
+					+ "And Most Importantly Don't Let Me Be Trapped Down Here!</html>");
 		}
 		
 		else 
@@ -196,62 +216,62 @@ public class BeginnerStory implements ActionListener {
 		
 		else if(countUpdate == 1)
 		{
-			optionButton1.setText("But Who Am I!?");
+			optionButton1.setText("Ask Who You Are");
 			optionButton2.setText("Stay Silent");
 		}
 		
 		else if(countUpdate == 2)
 		{
-			optionButton1.setText("Okay But Who Am I!?");
+			optionButton1.setText("Ask Who You Are Again With Frustration");
 			optionButton2.setText("Scrutinize Knight");
 		}
 		
 		else if(countUpdate == 3)
 		{
-			optionButton1.setText("Wow, I'm That Amazing!?");
+			optionButton1.setText("Exclaim How Amazing You Are");
 			optionButton2.setText("Looks Suspiciously at Knight");
 		}
 		
 		else if(countUpdate == 4)
 		{
-			optionButton1.setText("Wow You Are a Jerk");
+			optionButton1.setText("Criticize Knight For Being A Jerk");
 			optionButton2.setText("Silently Ask God for Patience");
 		}
 		
 		else if(countUpdate == 5)
 		{
-			optionButton1.setText("...I'm Sorry");
-			optionButton2.setText("Wait...How Did I Not Die!?!");
+			optionButton1.setText("Apologize to Knight");
+			optionButton2.setText("Question How You Did Not Die From Blast");
 		}
 		
 		else if(countUpdate == 6)
 		{
-			optionButton1.setText("...I'm Really Sorry!!");
-			optionButton2.setText("You're Very Welcome!");
+			optionButton1.setText("Apologize Half-Heartedly");
+			optionButton2.setText("Proudly Accept Knight's Thanks");
 		}
 		
 		else if(countUpdate == 7)
 		{
-			optionButton1.setText("I Can Try...");
-			optionButton2.setText("Um I'm A Minesweeper...");
+			optionButton1.setText("Exclaim You Can Try");
+			optionButton2.setText("Exclaim You Are A MineSweeper...");
 		}
 		
 		else if(countUpdate == 8)
 		{
 			optionButton1.setText("Questions Internally How He Is A Knight");
-			optionButton2.setText("You're Very Courageous...");
+			optionButton2.setText("Give A Thumbs Up And A Sarcastic Smile");
 		}
 		
 		else if(countUpdate == 9)
 		{
-			optionButton1.setText("Thank You...");
-			optionButton2.setText("What The Heck is Orb Magic?");
+			optionButton1.setText("Thank Knight With A Confused Face");
+			optionButton2.setText("Question Internally What Orb Magic Is");
 		}
 		
 		else if(countUpdate == 10)
 		{
-			optionButton1.setText("I Can Try...");
-			optionButton2.setText("Questions IQ of Knight");
+			optionButton1.setText("Reluctantly Say You Will Try");
+			optionButton2.setText("Swears To Self If You Die You Will Haunt Him");
 		}
 		
 	}
@@ -275,12 +295,13 @@ public class BeginnerStory implements ActionListener {
 			startGame();
 		}
 		
+		else if(e.getSource() == skipButton)
+		{
+			frame.dispose();
+			game.playGame(BEGINNER_LEVEL);
+		}
+		
 	}
-	
-	
-	
-	
-	
 	
 
 }

@@ -3,23 +3,24 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Menu implements MouseListener {
+public class Menu implements ActionListener {
 	
 	private JFrame frame = new JFrame();
-	private JButton level1Button = new JButton("Beginner Level");
-	private JButton level2Button = new JButton("Intermediate Level");
-	private JButton level3Button = new JButton("Expert Level");
+	private JButton level1Button = new JButton("Beginner Level (5x5)");
+	private JButton level2Button = new JButton("Intermediate Level (7x7)");
+	private JButton level3Button = new JButton("Expert Level (9x9)");
 	
 	private ImageClass image = new ImageClass();
-	private Game game = new Game();
 	private BeginnerStory story = new BeginnerStory();
+	private IntermediateStory story2 = new IntermediateStory();
+	private ExpertStory story3 = new ExpertStory();
 		
 	
 	public Menu()
@@ -53,9 +54,9 @@ public class Menu implements MouseListener {
 	    level2Button.setBackground(Color.WHITE);
 	    level3Button.setBackground(Color.WHITE);
 	    
-	    level1Button.addMouseListener(this);
-	    level2Button.addMouseListener(this);
-	    level3Button.addMouseListener(this);
+	    level1Button.addActionListener(this);
+	    level2Button.addActionListener(this);
+	    level3Button.addActionListener(this);
 	    
 	    levelPanel.add(level1Button);
 	    levelPanel.add(level2Button);
@@ -74,55 +75,28 @@ public class Menu implements MouseListener {
 	    
 	}
 
+	
 	@Override
-	public void mouseClicked(MouseEvent e) {
-		
+	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == level1Button)
 		{
 			frame.dispose();
-	
 			story.beginnerStory();
-			//game.playGame(1);
 		}
 		
 		else if(e.getSource() == level2Button)
 		{
 			frame.dispose();
-			game.playGame(2);
+			story2.intermediateStory();
 		}
 		
 		else if(e.getSource() == level3Button)
 		{
 			frame.dispose();
-			game.playGame(3);
+			story3.expertStory();
 		}
 		
 	}
 
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 
 }
