@@ -72,6 +72,8 @@ public class Game {
 			setWidthOfFrame(690);
 			setHeightOfFrame(800);
 			imageLabel.setIcon(image.getDungeonImage());
+			Music.getMusicFile("src/Propertiming.wav");
+			Music.play();
 		}
 		
 		else if(levelOption == 2)
@@ -82,7 +84,8 @@ public class Game {
 			setWidthOfFrame(850);
 			setHeightOfFrame(1000);
 			imageLabel.setIcon(image.getSanctuaryImage());
-			
+			Music.getMusicFile("src/Outro.wav");
+			Music.play();
 		}
 		
 		else if(levelOption == 3)
@@ -93,6 +96,8 @@ public class Game {
 			setWidthOfFrame(900);
 			setHeightOfFrame(1030);
 			imageLabel.setIcon(image.getDragonImage());
+			Music.getMusicFile("src/PeaceInSunlight.wav");
+			Music.play();
 		}
 	}
 	
