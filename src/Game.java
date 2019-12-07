@@ -17,7 +17,6 @@ public class Game {
 	private JPanel panelFormatForFrame;
 	private ImageClass image = new ImageClass();
 	
-	
 	private int frameWidth;  
 	private int frameHeight;
 	public int widthOfBoard;
@@ -34,18 +33,6 @@ public class Game {
 	private void setHeightOfBoard(int heightOfBoard)
 	{
 		this.heightOfBoard = heightOfBoard;
-	}
-	
-	
-	public int getWidthOfBoard() 
-	{
-		return widthOfBoard;
-	}
-
-
-	public int getHeightOfBoard() 
-	{
-		return heightOfBoard;
 	}
 	
 	
