@@ -151,8 +151,34 @@ import javax.swing.SwingUtilities;
 	{
 		JOptionPane.showMessageDialog(null, "Game Over!");
 		gameFrame.dispose();
-		playAgainMenu.gameOver(currentLevel);
 		Music.stop();
+		playAgainMenu.gameOver(currentLevel);
+	}
+	
+	
+	public void isAllClear()
+	{
+		int count = 0;
+		
+		for(int i = 0; i < widthOfBoard; i++)
+		{
+			for(int j = 0; j < heightOfBoard; j++)
+			{
+				if(gameBoardCharacterArray[i][j] != gameBoardCharacterArrayCopy[i][j])
+				{
+					count = 1;
+				}
+			}
+		}
+		
+		if(count != 1)
+		{
+			JOptionPane.showMessageDialog(null, "Congratulations!");
+			gameFrame.dispose();
+			Music.stop();
+			playAgainMenu.continueGame(currentLevel);
+		}
+		
 	}
 	
 	
@@ -518,32 +544,6 @@ import javax.swing.SwingUtilities;
 		}
 	}
 
-	
-	public void isAllClear()
-	{
-		int count = 0;
-		
-		for(int i = 0; i < widthOfBoard; i++)
-		{
-			for(int j = 0; j < heightOfBoard; j++)
-			{
-				if(gameBoardCharacterArray[i][j] != gameBoardCharacterArrayCopy[i][j])
-				{
-					count = 1;
-				}
-			}
-		}
-		
-		if(count != 1)
-		{
-			JOptionPane.showMessageDialog(null, "Congratulations!");
-			gameFrame.dispose();
-			playAgainMenu.continueGame(currentLevel);
-		}
-		
-		
-	}
-	
 	
 
 	@Override
