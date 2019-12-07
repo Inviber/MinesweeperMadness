@@ -90,7 +90,6 @@ public class PlayAgain implements ActionListener {
 	    frame.setLocationRelativeTo(null);
 	    frame.setVisible(true);
 	    
-	    Music.stop();
 	}
 	
 	
@@ -124,8 +123,6 @@ public class PlayAgain implements ActionListener {
 		    frame.setLocationRelativeTo(null);
 		    frame.setVisible(true);
 		    
-		    Music.stop();
-
 		    frame.add(buttonPanel, BorderLayout.SOUTH);
 		    frame.add(mainPanel, BorderLayout.CENTER);	    
 		}
@@ -159,9 +156,6 @@ public class PlayAgain implements ActionListener {
 		    frame.setLocationRelativeTo(null);
 		    frame.setVisible(true);
 		    
-		    Music.stop();
-
-
 		}
 		
 		frame.setResizable(false);
