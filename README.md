@@ -1,1 +1,1 @@
-# se-project
+# Minesweeper Madness
